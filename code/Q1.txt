@@ -1,0 +1,13 @@
+With argument 10 I got a 0.112s runtime.
+With argument 100 I got a 1.103 s runtime.
+With argument 1000 I got a 11.006s runtime.
+
+The runtime depends on how many disk reads are done. Since I know that our
+simulated disk has a per-access read latency of 10 ms, we can predict the
+runtime of sRed by multiplying the number of reads we want by .01s.
+
+10*.01=.1s
+100*.01=1s
+1000*.01=10s
+
+These numbers somewhat match with the runtime I got before.

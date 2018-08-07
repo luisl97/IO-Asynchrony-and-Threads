@@ -1,0 +1,10 @@
+With argument 10 my min runtime was 0.014s
+With argument 100 my min runtime was 0.015s
+With argument 1000 my min runtime was 0.020s
+
+In this asynchronous case we can clearly see that the amount of disk reads
+that are done do not affect the runtime as much as sRead.c. This is because
+in this asynchronous case we are not halting our program in order to wait
+for the disk read to complete. Instead we queue the read and the code keeps
+running, waiting for interrupt service routine which will activate the
+dequeue.

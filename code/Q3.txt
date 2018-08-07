@@ -1,0 +1,10 @@
+With argument 10 my min runtime was 0.016s and sys time was 0.007s
+With argument 100 my min runtime was 0.024s and sys time was 0.013s
+With argument 1000 my min runtime was 0.091s and sys time was 0.070s
+
+In this asynchronous case we can see that there is not much runtime wasted like
+in sRead.c, but it is running a bit slower than aRead.c . This is clearly
+due to how in tRead.c we have to run a lot more code that in aRead.c. In
+tRead.c for each read we perform we create a new thread and each thread has
+a constant amount of code, which is why we see that the runtime increases
+linearly as the number of reads increases.
